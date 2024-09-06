@@ -29,8 +29,5 @@ Main functions of the project:
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
 
-<<<<<<< HEAD
+
 <a href='https://hostingkartinok.com/show-image.php?id=b12a4784ec58da7f3fe3c7376e0b0c28' title='хостинг фото'><img style="width:100%" src='https://s1.hostingkartinok.com/uploads/images/2024/09/b12a4784ec58da7f3fe3c7376e0b0c28.jpg' alt='mishi.jpg'  /></a>
-=======
-![Decorations](https://hostingkartinok.com/show-image.php?id=b12a4784ec58da7f3fe3c7376e0b0c28)
->>>>>>> a745a2acfd40ab434408e391ee8a756661e1c76c
