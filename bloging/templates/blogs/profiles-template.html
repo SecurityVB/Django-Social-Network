@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user.username</title>
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <div class="profile-username-container">
+        {% block username %} {% endblock %}
+    </div>
+    <div class="navbar">
+
+        <div class="left">
+            <a href="{% url 'desk' %}">Главная</a>
+            <a href="{% url 'profile' %}">Профиль</a>
+        </div>
+
+        <div class="right">
+            {% block right-menu %}  {% endblock %}
+        </div>
+
+    </div>
+
+
+    {% block content %} {% endblock %}
+
+</body>
+</html>

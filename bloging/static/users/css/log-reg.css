@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e8f7e8;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.navbar {
+    background-color: #e0f2e0;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    color: #5f865f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #7fa87f;
+}
+
+h2 {
+    text-align: center;
+    color: #5f865f;
+    margin-bottom: 20px;
+}
+
+label {
+    color: #7fa87f;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #c2d6c2;
+    border-radius: 5px;
+    background-color: #f2fcf2;
+    font-size: 16px;
+    color: #5f865f;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #5f865f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 35px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #7fa87f;
+}
+
+.form-error {
+    color: rgb(201, 58, 58);
+    font-weight: bold;
+}
+
+li::marker {
+    content: "! ";
+    font-size: 20px
+}
+
+ul.errorlist { /*! Этот класс добавляется при выведение ошибки */
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+.center {
+    color: rgb(201, 58, 58);
+    font-weight: bold;
+}

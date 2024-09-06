@@ -1,0 +1,16 @@
+{% extends "blogs/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link type="text/css" href="{% static 'blogs/css/not_found_404.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>404</h1>
+        <p>Страница не найдена</p>
+        <a class="button" href="{% url 'desk' %}">Вернуться на главную</a>
+    </div>
+
+{% endblock %}

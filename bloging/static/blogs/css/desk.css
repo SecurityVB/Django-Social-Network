@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0; /* Очень бледно-зеленый фон */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #e0f2e0;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    color: #5f865f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #7fa87f;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e8f7e8;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.post {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f2fcf2; /* Ещё более бледно-зеленый фон поста */
+    border-left: 5px solid #c2d6c2; /* Цветная граница слева */
+    border-radius: 5px;
+}
+
+.post h2 {
+    color: #5f865f; /* Цвет заголовка поста */
+    margin-bottom: 10px;
+}
+
+.post p {
+    color: #7fa87f; /* Цвет текста поста */
+    line-height: 1.6;
+}
+
+.post .author {
+    text-align: right;
+    color: #a0c0a0; /* Цвет автора поста */
+    font-style: italic;
+}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'users/css/log-reg.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="left">
+            <a href="{% url 'desk' %}">Главная</a>
+            <a href="{% url 'profile' %}">Профиль</a>
+        </div>
+        {% if not user.is_authenticated %}
+            <div class="center">Войдите или Зарегистрируйтесь</div>
+        {% endif %}
+        <div class="right">
+            {% block menu %}  {% endblock %}
+        </div>
+    </div>
+
+    <div class="container">
+        {% block form_content %} {% endblock %}
+    </div>
+
+</body>

@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+
+
+{% block menu %}
+    <a href="{% url 'users:login' %}">Войти</a>
+    <a href="{% url 'users:register' %}">Регистрация</a>
+{% endblock %}
+
+{% block form_content %}
+
+    <h2>Авторизация</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+
+        {% for f in form %}
+        <label for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <div class="submit">
+            <button type="submit">Войти</button>
+        </div>
+    </form>
+
+{% endblock %}

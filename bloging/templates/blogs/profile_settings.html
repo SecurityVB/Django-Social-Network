@@ -1,0 +1,65 @@
+{% extends 'blogs/profiles-template.html' %}
+{% load static %}
+
+
+
+{% block css %}
+    <link type="text/css" href="{% static 'blogs/css/profile_settings.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+
+{% block right-menu %}
+
+    <form class="left" method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button class="exit" type="submit">Выйти</button>
+    </form>
+
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Настройки</h1>
+
+        <form action="" class="profile-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="profile-back-container">
+                <div class="profile-back">
+                    {% if user.back %}
+                        <img src="{{ user.back.url }}" alt="" class="profile-back-img">
+                    {% else %}
+                        <img src="{{ default_back }}" alt="" class="profile-back-img">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="profile-icon">
+                {% if user.icon %}
+                    <img src="{{ user.icon.url }}" alt="" class="profile-icon-img">
+                {% else %}
+                    <img src="{{ default_icon }}" alt="" class="profile-icon-img">
+                {% endif %}
+            </div>
+
+            <div class="form-error">{{ form.non_field_errors }}</div>
+
+            <div class="form-fields">
+                {% for f in form %}
+                    <div class="form-group">
+                        <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
+                        {{ f }}
+                        <div class="form-error">{{ f.errors }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="profile-settings-buttons">
+                <button class="save" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

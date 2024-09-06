@@ -1,0 +1,28 @@
+{% extends "blogs/base.html" %}
+{% load static %}
+
+
+{% block css %}
+    <link type="text/css" href="{% static 'blogs/css/add_page.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h2>Добавить новый пост</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+
+            {% for f in form %}
+                <label for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}
+                <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <div class="submit">
+                <button type="submit">Опубликовать</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
