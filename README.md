@@ -29,4 +29,4 @@ Main functions of the project:
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
 
-![Decorations]([https://i.ibb.co/C9wpnfb/Banner-tg.jpg](https://i.postimg.cc/26SXfCPq/mishi.jpg))
+![Decorations](https://i.postimg.cc/26SXfCPq/mishi.jpg)
