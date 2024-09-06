@@ -29,4 +29,4 @@ Main functions of the project:
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
 
-![Decorations](https://i.ibb.co/kyjJF3f/mishi.jpg)
+![Decorations](https://hostingkartinok.com/show-image.php?id=b12a4784ec58da7f3fe3c7376e0b0c28)
