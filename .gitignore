@@ -1,3 +1,4 @@
 VENV
 .idea
 *.pyc
+.sqlite3
