@@ -1,15 +1,14 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models.fields import return_None
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, HttpResponse, get_object_or_404, get_list_or_404, redirect
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views import View
+from django.conf import settings
 from django.views.generic import UpdateView, FormView
 
 from .forms import ProfileSettingsForm, AddPostForm
 
-from .models import Blogs # , Profiles, UploadFiles
+from .models import Blogs
 from django.contrib.auth.decorators import login_required
 
 
@@ -49,10 +48,10 @@ class AddPost(LoginRequiredMixin, FormView):
     def get_success_url(self):
         return reverse_lazy('desk')
 
-    # extra_context = {
-    #     "default_icon": settings.DEFAULT_USER_ICON,
-    #     "default_back": settings.DEFAULT_USER_BACK,
-    # }
+    extra_context = {
+        "default_icon": settings.DEFAULT_USER_ICON,
+        "default_back": settings.DEFAULT_USER_BACK,
+    }
 
 
 
@@ -77,10 +76,10 @@ class ProfileSettingsUser(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('profile')
 
-    # extra_context = {
-    #     "default_icon": settings.DEFAULT_USER_ICON,
-    #     "default_back": settings.DEFAULT_USER_BACK,
-    # }
+    extra_context = {
+        "default_icon": settings.DEFAULT_USER_ICON,
+        "default_back": settings.DEFAULT_USER_BACK,
+    }
 
 
 

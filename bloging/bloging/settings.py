@@ -1,9 +1,6 @@
 import os
 from pathlib import Path
 
-from django.conf.global_settings import LOGIN_URL, AUTH_USER_MODEL, MEDIA_URL
-from django.urls import reverse_lazy
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -35,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogs.apps.BlogsConfig',
     'users.apps.UsersConfig', # Для регистрации
+    'blogslikes.apps.BlogslikesConfig', # Лайки
 ]
 
 MIDDLEWARE = [
@@ -52,7 +50,7 @@ ROOT_URLCONF = 'bloging.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ f"{BASE_DIR}/templates" ],
+        'DIRS': os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,7 +115,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static').replace('\\', '/'),
+    os.path.join(BASE_DIR, 'static').replace('\\', '/')
 ]
 
 # Default primary key field type
@@ -128,8 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = "users:login"
 LOGIN_REDIRECT_URL = "profile"
