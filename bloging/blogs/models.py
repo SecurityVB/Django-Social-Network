@@ -34,6 +34,7 @@ class Blogs(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, default=None, null=True)
+    likes = models.IntegerField(blank=True, default=0)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
@@ -52,6 +53,7 @@ class Blogs(models.Model):
 
     class Meta:
         verbose_name_plural = "Blogs"
+        ordering = ["-priority"] #
     
     def get_absolute_url(self):
         return reverse("profiles", kwargs={"username": self.author.username})

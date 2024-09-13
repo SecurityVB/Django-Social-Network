@@ -23,20 +23,17 @@
 
 {% block content %}
 
-    {% for post in Increased %}
+    {% for post in blogs %}
         <div class="post">
             <h2>{{ post.title }}</h2>
             <p>{{ post.content }}</p>
-            <div class="author"><a href="{{ post.get_absolute_url }}">By {{ post.author }}</a></div>
+            <div class="down">
+                <a href="{% url 'blogslikes:like' post_id=post.pk %}" class="like">❤ {{ post.likes }}</a>
+                <a href="{{ post.get_absolute_url }}">By {{ post.author }}</a>
+            </div>
         </div>
     {% endfor %}
 
-    {% for post in Normal %}
-        <div class="post">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}</p>
-            <div class="author"><a href="{{ post.get_absolute_url }}">By {{ post.author }}</a></div>
-        </div>
-    {% endfor %}
+
 
 {% endblock %}

@@ -12,6 +12,7 @@ from .models import Blogs
 from django.contrib.auth.decorators import login_required
 
 
+
 """----------------------------INDEX---------------------------"""
 
 @login_required()
@@ -24,12 +25,10 @@ def index_view(request):
 
 @login_required()
 def desk_view(request):
-    posts_increased = Blogs.published.filter(priority=Blogs.Priority.Increased)
-    posts_normal = Blogs.published.filter(priority=Blogs.Priority.Normal)
+    blogs = Blogs.published.all()
     data = {
         "title": "Главная",
-        "Increased": posts_increased,
-        "Normal": posts_normal,
+        "blogs": blogs,
     }
     return render(request, 'blogs/desk.html', data)
 

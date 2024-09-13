@@ -56,3 +56,16 @@ body {
     color: #a0c0a0; /* Цвет автора поста */
     font-style: italic;
 }
+
+.down {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    color: #a0c0a0; /* Цвет автора поста */
+    font-style: italic;
+}
+
+.like {
+    color: red;
+    text-decoration: none;
+}

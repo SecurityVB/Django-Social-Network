@@ -8,7 +8,8 @@ from blogs.views import page_not_found
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blogs/', include('blogs.urls')),
-    path('users/', include('users.urls', namespace="users")) # users:login
+    path('users/', include('users.urls', namespace="users")), # users:login
+    path('blogslikes/', include('blogslikes.urls', namespace="blogslikes")), # users:login
 ]
 
 

@@ -7,8 +7,10 @@ class BlogsLikes(models.Model):
     liked_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     time_create = models.DateTimeField(auto_now_add=True)
 
+    objects = models.Manager()
+
     def __str__(self):
-        return self.post
+        return self.post.title
 
     class Meta:
         # unique_together = ('user', 'post')
