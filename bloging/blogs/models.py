@@ -53,7 +53,7 @@ class Blogs(models.Model):
 
     class Meta:
         verbose_name_plural = "Blogs"
-        ordering = ["-priority"] #
+        ordering = ["-priority"]
     
     def get_absolute_url(self):
         return reverse("profiles", kwargs={"username": self.author.username})

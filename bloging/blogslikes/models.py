@@ -13,5 +13,5 @@ class BlogsLikes(models.Model):
         return self.post.title
 
     class Meta:
-        # unique_together = ('user', 'post')
+        unique_together = ('post', 'liked_by')
         verbose_name_plural = "BlogsLikes"

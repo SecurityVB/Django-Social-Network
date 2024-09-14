@@ -1,4 +1,5 @@
 VENV
+bloging/media/users
 .idea
 *.pyc
 *.sqlite3

@@ -13,18 +13,13 @@ def likes(request, post_id):
     blog = Blogs.objects.get(pk=post_id)
 
     try:
-        like = BlogsLikes.objects.get(liked_by=user, post=blog)
+        BlogsLikes.objects.get(liked_by=user, post=blog).delete()
     except:
-        like = None
-
-    if like:
-        like.delete()
-        blog.likes -= 1
-    else:
         like = BlogsLikes.objects.create(liked_by=user, post=blog)
         like.save()
-        blog.likes += 1
 
+    blog.likes = BlogsLikes.objects.filter(post=blog).count()
     blog.save()
+
 
     return redirect('desk')

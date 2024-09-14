@@ -5,11 +5,13 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.conf import settings
 from django.views.generic import UpdateView, FormView
+from django.contrib.auth.decorators import login_required
 
 from .forms import ProfileSettingsForm, AddPostForm
 
+from blogslikes.models import BlogsLikes
 from .models import Blogs
-from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -26,6 +28,7 @@ def index_view(request):
 @login_required()
 def desk_view(request):
     blogs = Blogs.published.all()
+
     data = {
         "title": "Главная",
         "blogs": blogs,
