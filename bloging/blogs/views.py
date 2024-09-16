@@ -1,23 +1,22 @@
-from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import get_user_model, REDIRECT_FIELD_NAME
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.conf import settings
 from django.views.generic import UpdateView, FormView
-from django.contrib.auth.decorators import login_required
 
+from .config import ban_required, BanLoginRequiredMixin # Коректировка login проверка для проверки и логина и бана
 from .forms import ProfileSettingsForm, AddPostForm
 
-from blogslikes.models import BlogsLikes
 from .models import Blogs
-
 
 
 
 """----------------------------INDEX---------------------------"""
 
-@login_required()
+
 def index_view(request):
     return HttpResponseRedirect(reverse("desk"))
 
@@ -25,7 +24,7 @@ def index_view(request):
 """___________________DESK____________________________________"""
 
 
-@login_required()
+@ban_required
 def desk_view(request):
     blogs = Blogs.published.all()
 
@@ -37,7 +36,7 @@ def desk_view(request):
 
 
 
-class AddPost(LoginRequiredMixin, FormView):
+class AddPost(BanLoginRequiredMixin, FormView):
     form_class = AddPostForm
     template_name = 'blogs/add_page.html'
 
@@ -61,13 +60,13 @@ class AddPost(LoginRequiredMixin, FormView):
 
 
 
-@login_required()
+@ban_required
 def profile_view(request):
     return render(request, 'blogs/profile.html')
 
 
 
-class ProfileSettingsUser(LoginRequiredMixin, UpdateView):
+class ProfileSettingsUser(BanLoginRequiredMixin, UpdateView):
     model = get_user_model()
     form_class = ProfileSettingsForm
     template_name = 'blogs/profile_settings.html'
@@ -85,9 +84,7 @@ class ProfileSettingsUser(LoginRequiredMixin, UpdateView):
 
 
 
-
-
-@login_required()
+@ban_required
 def profiles_view(request, username):
     user = get_user_model().objects.get(username=username)
     data = {

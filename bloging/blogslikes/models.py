@@ -3,7 +3,7 @@ from django.db import models
 from blogs.models import Blogs
 
 class BlogsLikes(models.Model):
-    post = models.ForeignKey(Blogs, on_delete=models.SET_NULL, default=None, null=True)
+    post = models.ForeignKey(Blogs, on_delete=models.SET_NULL, null=True)
     liked_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     time_create = models.DateTimeField(auto_now_add=True)
 

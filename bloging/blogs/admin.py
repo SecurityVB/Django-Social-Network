@@ -15,7 +15,7 @@ class BlogsAdmin(admin.ModelAdmin):
     list_filter = ["is_published", "priority", "likes"]
 
 
-    @admin.display(description="symbols", ordering='content') # Название поля функции и сортировка
+    @admin.display(description="symbols", ordering='content')
     def count_content(self, blogs: Blogs):
         return f"{len(blogs.content)} символов"
 
