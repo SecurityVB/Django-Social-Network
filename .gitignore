@@ -1,8 +1,8 @@
 VENV
 bloging/media/users
 bloging/migrations/
-blogslikes/migrations/
-users/migrations/
+bloging/blogslikes/migrations/
+bloging/users/migrations/
 .idea
 *.pyc
 *.sqlite3
