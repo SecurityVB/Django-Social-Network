@@ -1,6 +1,6 @@
 VENV
 bloging/media/users
-bloging/migrations/
+bloging/blogs/migrations/
 bloging/blogslikes/migrations/
 bloging/users/migrations/
 .idea
