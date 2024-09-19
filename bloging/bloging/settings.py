@@ -123,7 +123,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 
@@ -135,4 +135,4 @@ LOGOUT_REDIRECT_URL = "users:login"
 AUTH_USER_MODEL = 'users.User'
 
 DEFAULT_USER_ICON = MEDIA_URL + 'users/icon/default.jpg'
-DEFAULT_USER_BACK = MEDIA_URL + 'users/icon/default.jpg'
+DEFAULT_USER_BACK = MEDIA_URL + 'users/back/default.jpg'

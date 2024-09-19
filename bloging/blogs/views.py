@@ -79,6 +79,11 @@ class ProfileSettingsUser(BanLoginRequiredMixin, UpdateView):
         "default_back": settings.DEFAULT_USER_BACK,
     }
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
 
 
 @ban_required
@@ -86,6 +91,8 @@ def profiles_view(request, username):
     user = get_user_model().objects.get(username=username)
     data = {
         "profile": user,
+        "default_icon": settings.DEFAULT_USER_ICON,
+        "default_back": settings.DEFAULT_USER_BACK,
     }
     return render(request, 'blogs/profiles.html', data)
 
