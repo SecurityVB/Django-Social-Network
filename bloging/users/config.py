@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import AccessMixin, LoginRequiredMixin
 from django.contrib.auth.views import LogoutView
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from users.models import Bans
+from .models import Bans
 
 
 
@@ -40,25 +40,20 @@ from users.models import Bans
 
 
 class BanLoginRequiredMixin(LogoutView):
-    """Миксин для проверки бана при выходе пользователя"""
-
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            # Если пользователь не аутентифицирован, перенаправляем его на логин
             return redirect('users:login')
 
         try:
-            # Проверяем, забанен ли пользователь
-            ban_status = Bans.objects.get(user=request.user).ban
+            ban = Bans.objects.get(user=request.user)
         except Bans.DoesNotExist:
-            ban_status = False  # Если нет записи в Bans, считаем, что пользователь не забанен
+            ban = False
 
-        if ban_status:
-            # Если пользователь забанен, перенаправляем его на логин или другую страницу
+        if ban:
             return redirect('users:login')
 
-        # Если всё хорошо, продолжаем выполнение LogoutView
         return super().dispatch(request, *args, **kwargs)
+
 
 
 
@@ -68,17 +63,15 @@ def ban_required(view_func):
             return redirect('users:login')
 
         try:
-            # Проверяем, забанен ли пользователь
-            ban = Bans.objects.get(user=request.user).ban
+            ban = Bans.objects.get(user=request.user)
         except Bans.DoesNotExist:
             ban = False
 
         if ban:
-            # Если пользователь забанен, перенаправляем на логин
+            logout(request)
             return redirect('users:login')
 
-        # Выполняем логику выхода
-        logout(request)
+
         return view_func(request, *args, **kwargs)
 
     return wrapped_view

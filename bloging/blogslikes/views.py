@@ -3,11 +3,10 @@ from django.shortcuts import render, redirect
 
 from .models import BlogsLikes
 from blogs.models import Blogs
-from django.contrib.auth.decorators import login_required
+from users.config import ban_required
 
 
-
-@login_required
+@ban_required
 def likes(request, post_id):
     user = request.user
     blog = Blogs.objects.get(pk=post_id)

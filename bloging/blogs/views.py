@@ -1,13 +1,11 @@
-from django.contrib.auth import get_user_model, REDIRECT_FIELD_NAME
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
+from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.conf import settings
 from django.views.generic import UpdateView, FormView
 
-from .config import ban_required, BanLoginRequiredMixin # Коректировка login проверка для проверки и логина и бана
+from users.config import ban_required, BanLoginRequiredMixin # Коректировка login проверка для проверки и логина и бана
 from .forms import ProfileSettingsForm, AddPostForm
 
 from .models import Blogs
@@ -27,7 +25,6 @@ def index_view(request):
 @ban_required
 def desk_view(request):
     blogs = Blogs.published.all()
-
     data = {
         "title": "Главная",
         "blogs": blogs,
