@@ -107,3 +107,8 @@ ul.errorlist { /*! Этот класс добавляется при вывед�
     color: rgb(201, 58, 58);
     font-weight: bold;
 }
+
+input {
+    font-size: 20px;
+    width: 100%;
+}

@@ -6,6 +6,14 @@ from .models import Blogs
 
 
 
+"""-----------------------Кастомная-Найстройка-отображения-полей-формы-----------------------------------"""
+
+forms.ClearableFileInput.clear_checkbox_label = "Удалить"
+forms.ClearableFileInput.initial_text = "Текущее"
+forms.ClearableFileInput.input_text = "Новая"
+
+"""---------------------------------------------------"""
+
 
 class AddPostForm(forms.ModelForm):
 
@@ -34,6 +42,8 @@ class ProfileSettingsForm(forms.ModelForm):
         model = get_user_model()
         fields = ['icon', 'back', 'first_name', 'last_name', 'date_birth', 'city', 'description', 'username', 'email']
         widgets = {
+            'icon': forms.ClearableFileInput(attrs={'class': 'file-input'}),
+            'back': forms.ClearableFileInput(attrs={'class': 'file-input'}),
             'first_name': forms.TextInput(attrs={'class': 'form-input'}),
             'last_name': forms.TextInput(attrs={'class': 'form-input'}),
             'city': forms.TextInput(attrs={'class': 'form-input'}),

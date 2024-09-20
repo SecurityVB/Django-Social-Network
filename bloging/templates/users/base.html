@@ -11,20 +11,24 @@
 <body>
 
     <div class="navbar">
+
         <div class="left">
             <a href="{% url 'desk' %}">Главная</a>
             <a href="{% url 'profile' %}">Профиль</a>
         </div>
-        {% if not user.is_authenticated %}
-            <div class="center">Войдите или Зарегистрируйтесь</div>
-        {% endif %}
-        <div class="right">
-            {% block menu %}  {% endblock %}
+
+        <div class="center">
+            {% block center-menu %}  {% endblock %}
         </div>
+
+        <div class="right">
+            {% block right-menu %}  {% endblock %}
+        </div>
+
     </div>
 
     <div class="container">
-        {% block form_content %} {% endblock %}
+        {% block content %}  {% endblock %}
     </div>
 
 </body>

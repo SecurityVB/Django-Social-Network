@@ -1,12 +1,14 @@
 {% extends 'users/base.html' %}
 
 
-{% block menu %}
+{% block right-menu %}
     <a href="{% url 'users:login' %}">Войти</a>
     <a href="{% url 'users:register' %}">Регистрация</a>
 {% endblock %}
 
-{% block form_content %}
+
+
+{% block content %}
 
     <h2>Авторизация</h2>
 

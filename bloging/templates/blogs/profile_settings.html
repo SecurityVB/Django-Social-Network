@@ -9,18 +9,8 @@
 
 
 
-{% block right-menu %}
+{% block other-content %}
 
-    <form class="left" method="post" action="{% url 'users:logout' %}">
-        {% csrf_token %}
-        <button class="exit" type="submit">Выйти</button>
-    </form>
-
-{% endblock %}
-
-
-
-{% block content %}
     <div class="container">
         <h1>Настройки</h1>
 
@@ -61,5 +51,22 @@
                 <button class="save" type="submit">Сохранить</button>
             </div>
         </form>
+
+
+        <aside class="important-menu">
+            <form action="{% url 'users:password_change' %}" method="get">
+                <div class="profile-settings-buttons">
+                    <button class="change-password" type="submit">Поменять пароль</button>
+                </div>
+            </form>
+
+            <form action="{% url 'users:logout' %}" method="get">
+                <div class="profile-settings-buttons">
+                    <button class="exit" type="submit">Выйти</button>
+                </div>
+            </form>
+        </aside>
+
     </div>
+
 {% endblock %}

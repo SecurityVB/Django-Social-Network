@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 
 import re
 
@@ -52,3 +52,13 @@ class RegisterUserForm(UserCreationForm):
         if not bool(re.fullmatch(r'[a-z0-9]+', username)):
             raise forms.ValidationError("Логин не должен иметь заглавных букв или спец. символов")
         return username
+
+
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(label="Старый пароль",
+                                   widget=forms.PasswordInput(attrs={"class": "form-input"})),
+    new_password1 = forms.CharField(label="Новый пароль",
+                                    widget=forms.PasswordInput(attrs={"class": "form-input"})),
+    new_password2 = forms.CharField(label="Подтверждение пароля",
+                                    widget=forms.PasswordInput(attrs={"autocomplete": "new-password"})),
