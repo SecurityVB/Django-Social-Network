@@ -57,7 +57,7 @@ body {
     font-style: italic;
 }
 
-.down {
+.post .down {
     display: flex;
     justify-content: space-between;
     text-align: right;
@@ -65,7 +65,7 @@ body {
     font-style: italic;
 }
 
-.like {
+.post .like {
     color: red;
     text-decoration: none;
 }

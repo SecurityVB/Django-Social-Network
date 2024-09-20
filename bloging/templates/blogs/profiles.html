@@ -30,45 +30,68 @@
 
 
 
-{% block content %}
-    <div class="profile-header">
-        {% if profile.back %}
-            <img src="{{ profile.back.url }}" alt="" class="profile-back-img">
+{% block profile-header %}
+    {% if profile.back %}
+        <img src="{{ profile.back.url }}" alt="" class="profile-back-img">
+    {% else %}
+        <img src="{{ default_back }}" alt="" class="profile-back-img">
+    {% endif %}
+{% endblock %}
+
+
+
+{% block profile-container %}
+
+    <div class="avatar">
+        {% if profile.icon %}
+            <img src="{{ profile.icon.url }}" alt="" class="profile-icon-img">
         {% else %}
-            <img src="{{ default_back }}" alt="" class="profile-back-img">
+            <img src="{{ default_icon }}" alt="" class="profile-icon-img">
         {% endif %}
     </div>
 
-    <div class="profile-container">
-        <div class="avatar">
-            {% if profile.icon %}
-                <img src="{{ profile.icon.url }}" alt="" class="profile-icon-img">
+    <div class="profile-info">
+        <h1 class="profile-name">
+            {% if profile.first_name or profile.last_name %}
+                {{ profile.first_name }} {{ profile.last_name }}
             {% else %}
-                <img src="{{ default_icon }}" alt="" class="profile-icon-img">
+                Имя не указано
             {% endif %}
-        </div>
-        <div class="profile-info">
-            <h1 class="profile-name">
-                {% if profile.first_name or profile.last_name %}
-                    {{ profile.first_name }} {{ profile.last_name }}
-                {% else %}
-                    Имя не указано
-                {% endif %}
-            </h1>
-            <p class="profile-city">
-                {% if profile.city %}
-                    Город: {{ profile.city }}
-                {% else %}
-                    Город: не указан
-                {% endif %}
-            </p>
-            <p class="profile-description">
-                {% if profile.description %}
-                    О себе: {{ profile.description }}
-                {% else %}
-                    О себе: отсутствует
-                {% endif %}
-            </p>
-        </div>
+        </h1>
+        <p class="profile-city">
+            {% if profile.city %}
+                Город: {{ profile.city }}
+            {% else %}
+                Город: не указан
+            {% endif %}
+        </p>
+        <p class="profile-description">
+            {% if profile.description %}
+                О себе: {{ profile.description }}
+            {% else %}
+                О себе: отсутствует
+            {% endif %}
+        </p>
     </div>
+
+{% endblock %}
+
+
+
+{% block posts-container %}
+
+    <div class="title">
+        <h1>Посты</h1>
+    </div>
+
+    {% for post in blogs %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <div class="down">
+                <a href="{% url 'blogslikes:like' post_id=post.pk %}" class="like">❤ {{ post.likes }}</a>
+            </div>
+        </div>
+    {% endfor %}
+
 {% endblock %}

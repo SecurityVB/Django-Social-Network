@@ -59,7 +59,13 @@ class AddPost(BanLoginRequiredMixin, FormView):
 
 @ban_required
 def profile_view(request):
-    return render(request, 'blogs/profile.html')
+    blogs = Blogs.objects.filter(author=request.user)
+    data = {
+        "blogs": blogs,
+        "default_icon": settings.DEFAULT_USER_ICON,
+        "default_back": settings.DEFAULT_USER_BACK,
+    }
+    return render(request, 'blogs/profile.html', data)
 
 
 
@@ -89,8 +95,10 @@ class ProfileSettingsUser(BanLoginRequiredMixin, UpdateView):
 @ban_required
 def profiles_view(request, username):
     user = get_user_model().objects.get(username=username)
+    blogs = Blogs.published.filter(author=user)
     data = {
         "profile": user,
+        "blogs": blogs,
         "default_icon": settings.DEFAULT_USER_ICON,
         "default_back": settings.DEFAULT_USER_BACK,
     }

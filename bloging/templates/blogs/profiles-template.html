@@ -13,7 +13,6 @@
         {% block username %} {% endblock %}
     </div>
     <div class="navbar">
-
         <div class="left">
             <a href="{% url 'desk' %}">Главная</a>
             <a href="{% url 'profile' %}">Профиль</a>
@@ -22,11 +21,19 @@
         <div class="right">
             {% block right-menu %}  {% endblock %}
         </div>
-
     </div>
 
+    <div class="profile-header">
+        {% block profile-header %} {% endblock %}
+    </div>
 
-    {% block content %} {% endblock %}
+    <div class="profile-container">
+        {% block profile-container %} {% endblock %}
+    </div>
+
+    <div class="posts-container">
+        {% block posts-container %} {% endblock %}
+    </div>
 
 </body>
 </html>
