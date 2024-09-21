@@ -1,15 +1,12 @@
 import os
 from pathlib import Path
 
+from django.conf.global_settings import AUTHENTICATION_BACKENDS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -131,8 +128,13 @@ LOGIN_URL = "users:login"
 LOGIN_REDIRECT_URL = "profile"
 LOGOUT_REDIRECT_URL = "users:login"
 
-
 AUTH_USER_MODEL = 'users.User'
 
 DEFAULT_USER_ICON = MEDIA_URL + 'users/icon/default.jpg'
 DEFAULT_USER_BACK = MEDIA_URL + 'users/back/default.jpg'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'users.authentication.EmailAuthBackend',
+]
+

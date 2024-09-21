@@ -155,46 +155,38 @@ select:focus {
     color: #405b40;
 }
 
-/* --------------------------------------important-menu---------------------------- */
-
-.important-menu {
-    position: absolute;
-    width: 200px;
-    background-color: #e8f7e8;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: -1762px 947px;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
+.profile-settings-buttons .save {
+    margin-bottom: 20px
 }
 
-.important-menu .profile-settings-buttons button {
-    text-weight: bold;
+.down-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-buttons-down {
     width: 100%;
-    padding: 10px;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
 .change-password {
-    margin-bottom: 15px;
+    margin-right: 10px;
     background-color: #5f865f;
 }
 
 .change-password:hover {
-    background-color: #5f865f;
+    background-color: #8bab8b;
 }
 
 .exit {
-    margin-bottom: 15px;
+    margin-left: 10px;
     background-color: #ca4955;
 }
 
 .exit:hover {
-    background-color: #c82333;
+    background-color: #e96773;
 }
 
+#id_email,
+#id_username {
+    background-color: #ceddce;
+}
