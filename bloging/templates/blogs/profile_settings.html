@@ -53,13 +53,15 @@
         </form>
 
         <div class="down-buttons">
-            <form class="form-buttons-down" action="{% url 'users:password_change' %}" method="get">
+            <form class="form-buttons-down" action="{% url 'users:password_change' %}" method="post">
+                {% csrf_token %}
                 <div class="profile-settings-buttons">
                     <button class="change-password" type="submit">Поменять пароль</button>
                 </div>
             </form>
 
-            <form class="form-buttons-down" action="{% url 'users:logout' %}" method="get">
+            <form class="form-buttons-down" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
                 <div class="profile-settings-buttons">
                     <button class="exit" type="submit">Выйти</button>
                 </div>
