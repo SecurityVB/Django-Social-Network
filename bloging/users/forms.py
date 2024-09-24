@@ -29,10 +29,10 @@ class RegisterUserForm(UserCreationForm):
         model = get_user_model()
         fields = ['username', 'email', 'first_name', 'last_name', 'city', 'password1', 'password2']
         labels = {
-            'email': 'Почта',
-            'first_name': 'Имя',
-            'last_name': 'Фамилия',
-            'city': 'Город',
+            'email': 'Почта ',
+            'first_name': 'Имя (необязательно)',
+            'last_name': 'Фамилия (необязательно)',
+            'city': 'Город (необязательно)',
         }
         widgets = {
             'email': forms.PasswordInput(attrs={'class': 'form-input', 'type': 'email'}),
