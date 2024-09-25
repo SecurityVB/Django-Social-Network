@@ -30,7 +30,7 @@ class Blogs(models.Model):
         Normal = 0, "Обычный"
         Increased = 1, "Повышенный"
 
-
+    image = models.ImageField(upload_to="blogs/%Y/%m/%d", blank=True, null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, default=None, null=True)

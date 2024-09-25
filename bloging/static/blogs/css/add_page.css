@@ -112,3 +112,17 @@ ul.errorlist { /*! Этот класс добавляется при вывед�
     padding-inline-start: 40px;
     unicode-bidi: isolate;
 }
+
+.post-images {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #91af91;
+    background-color: #d2e1d2;
+}
+
+.post-img {
+    max-width: 765px;
+    max-height: 400px;
+    height: 90%;
+    width: auto;
+}

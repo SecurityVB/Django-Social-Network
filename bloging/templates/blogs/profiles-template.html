@@ -31,9 +31,11 @@
         {% block profile-container %} {% endblock %}
     </div>
 
-    <div class="posts-container">
-        {% block posts-container %} {% endblock %}
-    </div>
+    {% if blogs %}
+        <div class="posts-container">
+            {% block posts-container %} {% endblock %}
+        </div>
+    {% endif %}
 
     {% block other-content %} {% endblock %}
 

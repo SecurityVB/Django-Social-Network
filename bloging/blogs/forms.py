@@ -19,12 +19,13 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Blogs
-        fields = ["title", "content", "is_published", "priority"]
+        fields = ["image", "title", "content", "is_published", "priority"]
         widgets = {
-            'title': forms.TextInput(),
-            'content': forms.Textarea(),
+            'icon': forms.ClearableFileInput(attrs={'class': 'file-input'}),
+            'title': forms.TextInput(attrs={'class': 'form-input'}),
+            'content': forms.Textarea(attrs={'class': 'form-area'}),
         }
-        labels = {"title": "Заголовок", "content": "Содержимое",
+        labels = {"image": "Фото","title": "Заголовок", "content": "Содержимое",
                   "is_published": "В общий доступ",
                   "priority": "Повышенный приоритет",
                   }

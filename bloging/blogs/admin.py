@@ -1,12 +1,14 @@
+from IPython.core.release import author
 from django.contrib import admin
 from .models import Blogs
 from blogslikes.models import BlogsLikes
+from django.utils.html import format_html
 
 
 
 @admin.register(Blogs)
 class BlogsAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "author", "time_create", "count_content", "likes", "is_published", "priority") # "profile_id",
+    list_display = ("id", "title", "author", "time_create", "count_content", "likes", "is_published", "priority", "image_size")
     list_display_links = ("id",)
     ordering = ["-time_create"]
     list_editable = ("is_published", "title", "priority")
@@ -18,6 +20,22 @@ class BlogsAdmin(admin.ModelAdmin):
     @admin.display(description="symbols", ordering='content')
     def count_content(self, blogs: Blogs):
         return f"{len(blogs.content)} символов"
+
+
+    @admin.display(description="Image size", ordering='image')
+    def image_size(self, blogs: Blogs):
+        if blogs.image and hasattr(blogs.image, 'size'):
+            size_bytes = blogs.image.size
+            if size_bytes < 1024:
+                size = f"{size_bytes} B"
+            elif size_bytes < 1024 * 1024:
+                size = f"{size_bytes / 1024:.2f} KB"
+            else:
+                size = f"{size_bytes / (1024 * 1024):.2f} MB"
+
+            image_url = blogs.image.url
+            return format_html(f'<a href="{image_url}" target="_blank">{size}</a>')
+        return "No image"
 
 
     @admin.action(description="Опубликовать выбраннные записи")

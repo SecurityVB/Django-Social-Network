@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8f0; /* Очень бледно-зеленый фон */
+    background-color: #f0f8f0;
     margin: 0;
     padding: 0;
 }
@@ -36,24 +36,24 @@ body {
 .post {
     margin-bottom: 20px;
     padding: 15px;
-    background-color: #f2fcf2; /* Ещё более бледно-зеленый фон поста */
-    border-left: 5px solid #c2d6c2; /* Цветная граница слева */
+    background-color: #f2fcf2;
+    border-left: 5px solid #c2d6c2;
     border-radius: 5px;
 }
 
 .post h2 {
-    color: #5f865f; /* Цвет заголовка поста */
+    color: #5f865f;
     margin-bottom: 10px;
 }
 
 .post p {
-    color: #7fa87f; /* Цвет текста поста */
+    color: #7fa87f;
     line-height: 1.6;
 }
 
 .post .author {
     text-align: right;
-    color: #a0c0a0; /* Цвет автора поста */
+    color: #a0c0a0;
     font-style: italic;
 }
 
@@ -61,11 +61,25 @@ body {
     display: flex;
     justify-content: space-between;
     text-align: right;
-    color: #a0c0a0; /* Цвет автора поста */
+    color: #a0c0a0;
     font-style: italic;
 }
 
 .post .like {
     color: red;
     text-decoration: none;
+}
+
+.post-images {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #91af91;
+    background-color: #d2e1d2;
+}
+
+.post-img {
+    max-width: 765px;
+    max-height: 400px;
+    height: 90%;
+    width: auto;
 }
